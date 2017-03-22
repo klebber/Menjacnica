@@ -8,12 +8,8 @@ public class Valuta {
 	private String nazivValute;
 	private String skracenica;
 	private LinkedList<Kurs> kursevi = new LinkedList<Kurs>();
-	
-	public void dodajKurs(double vrednostKursa, SimpleDateFormat datum) {
-		Kurs k = new Kurs();
-		k.setVrednostKursa(vrednostKursa);
-		k.setDatum(datum);
-		kursevi.add(k);
+	public void dodajKurs(Kurs kurs) {
+		kursevi.add(kurs);
 	}
 	
 	public void obrisiKurs(SimpleDateFormat datum) {

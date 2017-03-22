@@ -13,7 +13,10 @@ public class Menjacnica implements MenjacnicaInterfejs {
 	public void dodavanjeKursa(String nazivValute, double vrednostKursa, SimpleDateFormat datum) {
 		for (int i = 0; i < valute.size(); i++) {
 			if(valute.get(i).getNazivValute().equals(nazivValute)) {
-				valute.get(i).dodajKurs(vrednostKursa, datum);
+				Kurs k = new Kurs();
+				k.setVrednostKursa(vrednostKursa);
+				k.setDatum(datum);
+				valute.get(i).dodajKurs(k);
 			}
 		}
 	}
@@ -22,7 +25,7 @@ public class Menjacnica implements MenjacnicaInterfejs {
 	public void brisanjeKursa(String nazivValute, SimpleDateFormat datum) {
 		for (int i = 0; i < valute.size(); i++) {
 			if(valute.get(i).getNazivValute().equals(nazivValute)) {
-				
+				valute.get(i).obrisiKurs(datum);
 			}
 		}
 	}
