@@ -12,18 +12,24 @@ public class Valuta {
 		return nazivValute;
 	}
 	public void setNazivValute(String nazivValute) {
+		if(nazivValute == null)
+			throw new RuntimeException("Null naziv valute");
 		this.nazivValute = nazivValute;
 	}
 	public String getSkracenica() {
 		return skracenica;
 	}
 	public void setSkracenica(String skracenica) {
+		if(skracenica == null)
+			throw new RuntimeException("Null skracenica");
 		this.skracenica = skracenica;
 	}
 	public LinkedList<Kurs> getKursevi() {
 		return kursevi;
 	}
 	public void setKursevi(LinkedList<Kurs> kursevi) {
+		if(kursevi == null)
+			throw new RuntimeException("Null lista kurseva");
 		this.kursevi = kursevi;
 	}
 	@Override

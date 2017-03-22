@@ -11,12 +11,16 @@ public class Kurs {
 		return vrednostKursa;
 	}
 	public void setVrednostKursa(double vrednostKursa) {
+		if(vrednostKursa <= 0)
+			throw new RuntimeException("Null vrednost kursa manja ili jednaka nuli");
 		this.vrednostKursa = vrednostKursa;
 	}
 	public SimpleDateFormat getDatum() {
 		return datum;
 	}
 	public void setDatum(SimpleDateFormat datum) {
+		if(datum == null)
+			throw new RuntimeException("Null datum");
 		this.datum = datum;
 	}
 	@Override
