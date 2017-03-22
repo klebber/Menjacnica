@@ -1,5 +1,6 @@
 package menjacnica;
 
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 public class Valuta {
@@ -7,6 +8,30 @@ public class Valuta {
 	private String nazivValute;
 	private String skracenica;
 	private LinkedList<Kurs> kursevi = new LinkedList<Kurs>();
+	
+	public void dodajKurs(double vrednostKursa, SimpleDateFormat datum) {
+		Kurs k = new Kurs();
+		k.setVrednostKursa(vrednostKursa);
+		k.setDatum(datum);
+		kursevi.add(k);
+	}
+	
+	public void obrisiKurs(SimpleDateFormat datum) {
+		for (int i = 0; i < kursevi.size(); i++) {
+			if(kursevi.get(i).getDatum().equals(datum)) {
+				kursevi.remove(i);
+			}
+		}
+	}
+	
+	public Kurs vratiKurs(SimpleDateFormat datum) {
+		for (int i = 0; i < kursevi.size(); i++) {
+			if(kursevi.get(i).getDatum().equals(datum)) {
+				return kursevi.get(i);
+			}
+		}
+		return null;
+	}
 	
 	public String getNazivValute() {
 		return nazivValute;
