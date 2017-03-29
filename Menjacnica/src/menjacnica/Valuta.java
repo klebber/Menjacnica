@@ -8,7 +8,13 @@ public class Valuta {
 	private String nazivValute;
 	private String skracenica;
 	private LinkedList<Kurs> kursevi = new LinkedList<Kurs>();
+	
 	public void dodajKurs(Kurs kurs) {
+		for (int i = 0; i < kursevi.size(); i++) {
+			if(kursevi.get(i).getDatum().equals(kurs.getDatum())) {
+				throw new RuntimeException("Kurs za dati datum vec postoji.");
+			}
+		}
 		kursevi.add(kurs);
 	}
 	
